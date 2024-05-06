@@ -1,0 +1,72 @@
+---
+title: "Consent Form"
+format:
+    custom-typst:
+        paper: a4
+
+
+---
+::: {.content-visible when-profile="de"}
+ 
+:::
+::: {.content-visible when-profile="en"}
+
+:::
+
+::: {.content-visible when-profile="de"}
+ 
+:::
+::: {.content-visible when-profile="en"}
+
+:::
+```{r,setup}
+library(RcppTOML)
+toml = parseTOML("example_project.toml")
+toml
+
+```
+
+:::: {.block fill="luma(200)" inset="8pt" radius="4pt" width="50%"}
+::: {.content-visible when-profile="de"}
+ Verantwortlicher Wissenschaftler: Benedikt Ehinger
+:::
+::: {.content-visible when-profile="en"}
+Responsible Principal Investigator: Benedikt Ehinger
+:::
+Institut für Visualisierung und Interaktive Systeme (VIS) 
+University of Stuttgart
+Universitätstraße 34
+70569 Stuttgart
+E-mail: benedikt.ehinger@vis.uni-stuttgart.de
+::::
+
+
+::: {.content-visible when-profile="de"}
+# Aufklärung / Einwilligung
+:::
+::: {.content-visible when-profile="en"}
+# Informed consent
+:::
+
+::: {.content-visible when-profile="de"}
+Sehr geehrte Teilnehmerin, sehr geehrter Teilnehmer,   
+Sie haben sich freiwillig zur Teilnahme an dieser Studie gemeldet. Hier erhalten Sie nun einige Informationen zu Ihren Rechten und zum Ablauf des folgenden Experiments. Bitte lesen Sie sich die folgenden Abschnitte sorgfältig durch.
+
+:::
+
+::: {.content-visible when-profile="en"}
+Dear Participant,  
+You have volunteered to participate in this study. Here you will now receive some information about your rights and the procedure of the following experiment. Please read the following sections carefully. 
+
+:::
+
+
+
+::: {.content-visible when-profile="de"}
+## Vergütung 
+Die Studie wird mit `r toml$Consentform$pay_per_hour` € pro Stunde vergütet. Angefangene halbe Stunden werden aufgerundet.
+:::
+::: {.content-visible when-profile="en"}
+## Remuneration 
+The study will be remunerated with `r toml$Consentform$pay_per_hour` € per hour. Partial half hours will be rounded up. 
+:::

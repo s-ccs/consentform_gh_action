@@ -1,0 +1,31 @@
+[Authors]
+  authors = "John Doe, Lina Doe"
+  affiliation = "University of Stuttgart, Germany"
+[AuthorsContact]
+  email = "john@gmail.com"
+[Dataset]
+  title = "Convert XDF to BIDS"
+  dataset_description = "This is a test project to set up the pipeline to convert XDF to BIDS."
+  License = "MIT License"
+  taskName = "task-1"
+
+[Sources]
+  EEG = "EEGstream EE225"
+  marker = ["LSL_Markers","eegoSports-EE225_markersMarkers"]
+
+[Computers]
+  stimulusComputerUsed = true
+
+[Subject]
+  subject = ["Medicine, Health and Life Sciences","Engineering"]
+
+[Dataverse]
+  dataset_id = 123456
+  dataset_title = 'Convert XDF to BIDS'
+  pid = ' '
+
+[Consentform]
+    pay_per_hour = 15
+    use_eeg = true
+    use_eyetracking = true
+    

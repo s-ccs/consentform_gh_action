@@ -1,0 +1,5 @@
+profile:
+  default: de # vs. de
+
+editor:
+  render-on-save: true
