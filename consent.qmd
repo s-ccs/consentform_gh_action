@@ -1,13 +1,13 @@
 ---
-title: "Consent Form"
 format:
     custom-typst:
         paper: a4
-
+execute:
+    echo: false
 
 ---
 ::: {.content-visible when-profile="de"}
- 
+
 :::
 ::: {.content-visible when-profile="en"}
 
@@ -18,55 +18,157 @@ format:
 :::
 ::: {.content-visible when-profile="en"}
 
-:::
+::: 
 ```{r,setup}
 library(RcppTOML)
 toml = parseTOML("example_project.toml")
-toml
 
 ```
 
-:::: {.block fill="luma(200)" inset="8pt" radius="4pt" width="50%"}
+:::: {.block fill="none" inset="0pt" radius="4pt" width="60%"}
 ::: {.content-visible when-profile="de"}
- Verantwortlicher Wissenschaftler: Benedikt Ehinger
+Verantwortlicher Wissenschaftler: Benedikt Ehinger
 :::
 ::: {.content-visible when-profile="en"}
 Responsible Principal Investigator: Benedikt Ehinger
 :::
 Institut für Visualisierung und Interaktive Systeme (VIS) 
+\
 University of Stuttgart
+\
 Universitätstraße 34
+\
 70569 Stuttgart
+\
 E-mail: benedikt.ehinger@vis.uni-stuttgart.de
 ::::
 
-
-::: {.content-visible when-profile="de"}
+\
+ 
+:::: {.content-visible when-profile="de"}
 # Aufklärung / Einwilligung
-:::
+::::
 ::: {.content-visible when-profile="en"}
 # Informed consent
 :::
+
+\
 
 ::: {.content-visible when-profile="de"}
 Sehr geehrte Teilnehmerin, sehr geehrter Teilnehmer,   
 Sie haben sich freiwillig zur Teilnahme an dieser Studie gemeldet. Hier erhalten Sie nun einige Informationen zu Ihren Rechten und zum Ablauf des folgenden Experiments. Bitte lesen Sie sich die folgenden Abschnitte sorgfältig durch.
 
+## 1) **Ziel der Studie**
+
+In dieser Studie untersuchen wir, wie Menschen Bilder wahrnehmen, indem wir die Gehirnaktivität mit EEG und die Augenbewegungen mit einem Eye-Tracker aufzeichnen.
+
+## 2) **Ablauf der Studie**
+
+Die Studie läuft wie folgt ab:
+
+1. Wir führen einen Sehtest durch (Fernsicht und dominantes Auge). 
+
+2. Wir fragen mündlich ab, ob eine lichtempfindliche Epilepsie oder eine andere neurologische Störung (schwere Depression, ADHS, Autismus oder ähnliches) vorliegt.
+
+3. Sie setzen eine EEG-Kappe auf. Mit einer stumpfen Nadel wird ein Elektrodengel (ähnlich wie bei Ultraschall) aufgetragen und die oberste Schicht der Kopfhaut sanft aufgeraut, um eine ideale Leitfähigkeit herzustellen.
+
+4. Der Eye-Tracker muss kalibriert werden, dazu wird ein Punkt auf dem Bildschirm betrachtet, der an verschiedenen Stellen erscheint.
+
+5. Wir werden Ihnen Bilder auf dem Bildschirm präsentieren.
+
+6. Ihre Aufgabe ist es, die Bilder frei zu erkunden.
+
+7. Die EEG-Kappe wird abgenommen und Sie können sich das Gel aus den Haaren waschen.
+
+Inklusive der Fragebögen und Vorbereitungen, dauert der Versuch ca. 3 Stunden.
+
+## 3) **Risiken und Nebenwirkungen**
+
+Diese Studie ist nach derzeitigem Wissensstand ungefährlich und für die Teilnehmer schmerzfrei. Durch Ihre Teilnahme an dieser Studie setzen Sie sich keinen besonderen Risiken aus und es sind keine Nebenwirkungen bekannt. Bei Virtual Reality Experimenten kann Motion Sickness, oder eine Überanstrengung der Augen auftreten. Da diese Studie in Ihrer Gesamtheit neu ist, kann das Auftreten von noch unbekannten Nebenwirkungen allerdings nicht ausgeschlossen werden.
+Wichtig: Teilen Sie dem Versuchsleiter bitte umgehend mit, falls Sie an einer neurologischen Krankheit erkrankt sind, starke (Licht-)Stimulation Migräne auslösen kann, oder Sie einen epileptischen Anfall hatten. Bei Fragen hierzu wenden Sie sich bitte an die Versuchsleitung.
+
+## 4) **Abbruch der Studie**
+
+Die Teilnahme an der Studie ist freiwillig. Sie können jederzeit und ohne Angabe von Gründen Ihre Einwilligung zur Teilnahme an dieser Studie widerrufen, ohne dass Ihnen daraus Nachteile entstehen. Auch wenn Sie die Studie vorzeitig abbrechen, haben Sie dennoch Anspruch auf eine entsprechende Vergütung.
+
+Sollten Sie während des Experiments Kopfschmerzen oder Unwohlsein anderer Art verspüren, dann informieren Sie bitte umgehend die Versuchsleitung.
+
+## 5) **Vertraulichkeit**
+
+Ihre Daten werden nur in pseudonymisierter Form (z. B. „versuchsperson-003“) gespeichert. Die Zuordnungsdatei wird nach Abschluss der Datenerhebung gelöscht. Die Daten werden für wissenschaftliche Publikationen, aber auch als offene wissenschaftlichen Daten für Dritte zugänglich gemacht. Eine Löschung ist dann nicht mehr möglich. Der Datenschutz ist in der Datenschutzerklärung näher geregelt.
+
+## 6) **Vergütung** 
+
+Die Studie wird mit `r toml$Consentform$pay_per_hour` € pro Stunde vergütet. Angefangene halbe Stunden werden aufgerundet.
+
+## 7) **Einverständniserklärung** 
+
+Hiermit versichere ich, dass ich die oben beschriebenen Teilnehmerinformationen verstanden habe und mit den genannten Teilnahmebedingungen einverstanden bin.
+\
+\
+\
+
+.........................................................................
+
+Ort, Datum, Unterschrift
 :::
 
 ::: {.content-visible when-profile="en"}
 Dear Participant,  
 You have volunteered to participate in this study. Here you will now receive some information about your rights and the procedure of the following experiment. Please read the following sections carefully. 
 
-:::
+## 1) **Purpose of the study**
 
+In this study, we will investigate how humans perceive images by recording brain activity with EEG and eye-movements using an Eye-Tracker.
 
+## 2) **Study procedure**
 
-::: {.content-visible when-profile="de"}
-## Vergütung 
-Die Studie wird mit `r toml$Consentform$pay_per_hour` € pro Stunde vergütet. Angefangene halbe Stunden werden aufgerundet.
-:::
-::: {.content-visible when-profile="en"}
-## Remuneration 
+The study will proceed as follows:
+
+1. We perform an eye test (distance vision and dominant eye). 
+
+2. We verbally query whether there is photosensitive epilepsy or other neurological disorder (major depression, ADHD, autism, or similar).
+
+3. You put on an EEG cap. An electrode gel (similar to ultrasound) is applied with a blunt needle and the top layer of the scalp is gently roughened to create ideal conductivity.
+
+4. The eye tracker needs to be calibrated, for this they look at a dot on the screen that appears in different places.
+
+5. We will present pictures on the screen.
+
+6. Your task is to freely explore the pictures.
+
+7. The EEG cap will be removed and you can wash the gel out of your hair.
+
+Including the questionnaires and preparations, the experiment takes about  3 hours.
+
+## 3) **Risks and side effects**
+
+According to current knowledge, this study is harmless and painless for the participants. By participating in this study, you are not exposing yourself to any particular risks and there are no known side effects. In the case of virtual reality experiments, exposure may cause motion sickness or eye strain. However, because this study is new in its entirety, the occurrence of as yet unknown side effects cannot be completely ruled out. 
+
+**Important:** Please inform the investigator immediately if you have a neurological disease, if strong (light) stimulation can trigger migraine, if you have had an epileptic seizure. If you have any questions about this, please contact the experimental investigator.
+
+## 4) **Termination of the experiment**
+
+Participation in the study is voluntary. You may withdraw your consent to participate in this study at any time without giving any reason and without any disadvantages. Even if you terminate the study prematurely you will be remunerated accordingly.
+If you experience headaches or any other kind of discomfort during the experiment, please inform the experimental investigator immediately.
+
+## 5) **Confidentiality** 
+
+Your data will only be stored in pseudonymized form (e.g. "sub-003"). The data will be made available for scientific publications, but also as open scientific data for third parties. Deletion is then no longer possible. Data protection is regulated in more detail in the data privacy policy.
+
+## 6) **Remuneration** 
+
 The study will be remunerated with `r toml$Consentform$pay_per_hour` € per hour. Partial half hours will be rounded up. 
+
+## 7) **Declaration of consent** 
+
+I hereby confirm that I have understood the participant information described above and that I agree to the stated conditions of participation. 
+
+
+\
+\
+
+.........................................................................
+
+Place, date, signature
 :::

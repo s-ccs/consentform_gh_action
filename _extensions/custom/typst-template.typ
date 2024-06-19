@@ -11,12 +11,12 @@
 
 #let article(
   title: none,
-
+  
   cols: 2,
-  margin: (left: 10mm, right: 10mm, top: 3cm, bottom: 10mm),
+  margin: (left: 20mm, right: 20mm, top: 3cm, bottom: 20mm),
   paper: "a4",
   font: (),
-  fontsize: 14pt,
+  fontsize: 12pt,
   sectionnumbering: none,
   toc_title: false,
   toc_depth:0,
@@ -34,13 +34,8 @@
   set text(font: font,
            size: fontsize)
   set heading(numbering: sectionnumbering)
-
-  if title != none {
-    align(center)[#block(inset: 2em)[
-      #text(weight: "bold", size: 1.5em)[#title]
-    ]]
-  }
-
+  show heading.where(level: 1): set align(center)
+  
  
     doc
  
