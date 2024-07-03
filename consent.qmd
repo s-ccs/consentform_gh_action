@@ -6,19 +6,7 @@ execute:
     echo: false
 
 ---
-::: {.content-visible when-profile="de"}
 
-:::
-::: {.content-visible when-profile="en"}
-
-:::
-
-::: {.content-visible when-profile="de"}
- 
-:::
-::: {.content-visible when-profile="en"}
-
-::: 
 ```{r,setup}
 library(RcppTOML)
 toml = parseTOML("example_project.toml")
@@ -59,7 +47,7 @@ Sehr geehrte Teilnehmerin, sehr geehrter Teilnehmer,
 Sie haben sich freiwillig zur Teilnahme an dieser Studie gemeldet. Hier erhalten Sie nun einige Informationen zu Ihren Rechten und zum Ablauf des folgenden Experiments. Bitte lesen Sie sich die folgenden Abschnitte sorgfältig durch.
 :::
 ::: {.content-visible when-profile="en"}
-Dear participant,  
+Dear participant,
 You have volunteered to participate in this study. Here you will now receive some information about your rights and the procedure of the following experiment. Please read the following sections carefully. 
 :::
 
@@ -112,7 +100,6 @@ The study will proceed as follows:
 
 
 
-
 `r if (toml$Consentform$use_eyetracking!=TRUE) ":::: {.content-hidden}"`
 ::: {.content-visible when-profile="de"}
 1. Eye-Tracking: Der Eye-Tracker muss kalibriert werden, dazu wird ein sich bewegender Punkt auf dem Bildschirm angezeigt, dem Sie mit ihrem Blick folgen.
@@ -130,6 +117,7 @@ The study will proceed as follows:
 ::: {.content-visible when-profile="en"}
 1. We will present different pictures on the screen. Your task is to freely explore these pictures.
 :::
+
 
 
 `r if (toml$Consentform$use_eeg!=TRUE) ":::: {.content-hidden}"`
@@ -182,6 +170,7 @@ Participation in the study is voluntary. You may withdraw your consent to partic
 If you experience headaches or any other kind of discomfort during the experiment, please inform the experimental investigator immediately.
 :::
 
+
 ::: {.content-visible when-profile="de"}
 ## 5) **Vertraulichkeit**
 
@@ -193,6 +182,7 @@ Ihre Daten werden nur in pseudonymisierter Form (z. B. „versuchsperson-003“
 Your data will only be stored in pseudonymized form (e.g. "sub-003"). The mapping file will be deleted after the completion of the data collection. The data will be made available for scientific publications, but also as open scientific data for third parties. Deletion is then no longer possible. Data protection is regulated in more detail in the data privacy policy.
 :::
 
+
 ::: {.content-visible when-profile="de"}
 ## 6) **Vergütung** 
 
@@ -203,6 +193,7 @@ Die Studie wird mit `r toml$Consentform$pay_per_hour` € pro Stunde vergütet.
 
 The study will be remunerated with `r toml$Consentform$pay_per_hour` € per hour. Partial half hours will be rounded up. 
 :::
+
 
 ::: {.content-visible when-profile="de"}
 ## 7) **Einverständniserklärung** 
