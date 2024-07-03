@@ -74,45 +74,82 @@ In dieser Studie untersuchen wir, wie Menschen Bilder wahrnehmen, indem wir die 
 In this study, we will investigate how humans perceive images by recording brain activity with EEG and eye movements using an eye-tracker.
 :::
 
+
 ::: {.content-visible when-profile="de"}
 ## 2) **Ablauf der Studie**
 
 Die Studie läuft wie folgt ab:
-
-1. Wir führen einen Sehtest durch (Sehschärfe und dominantes Auge). 
-
-1. Wir fragen mündlich ab, ob eine photosensitive Epilepsie, photosensitive Migräne oder eine andere neurologische oder psychiatrische Erkrankung (schwere Depression, ADHS, Autismus o.ä.) vorliegt.
-
-1. EEG: Sie ziehen eine EEG-Kappe an. Mit einer stumpfen Nadel wird ein Elektrodengel (ähnlich wie bei Ultraschall) aufgetragen und die oberste Schicht der Kopfhaut sanft aufgeraut, um eine ideale Leitfähigkeit herzustellen.
-
-1. Eye-Tracking: Der Eye-Tracker muss kalibriert werden, dazu wird ein sich bewegender Punkt auf dem Bildschirm angezeigt, dem Sie mit ihrem Blick folgen.
-
-1. Es werden Ihnen verschiedene Bilder auf dem Monitor präsentiert. Ihre Aufgabe ist es, die Bilder frei zu erkunden.
-
-1. Die EEG-Kappe wird abgenommen und Sie können sich das Gel aus den Haaren waschen.
-
-Inklusive der Fragebögen und Vorbereitungen, dauert der Versuch ca. 3 Stunden.
 :::
 ::: {.content-visible when-profile="en"}
 ## 2) **Study procedure**
 
 The study will proceed as follows:
+:::
 
-
+::: {.content-visible when-profile="de"}
+1. Wir führen einen Sehtest durch (Sehschärfe und dominantes Auge). 
+:::
+::: {.content-visible when-profile="en"}
 1. We perform an eye test (visual acuity and dominant eye). 
+:::
 
+::: {.content-visible when-profile="de"}
+1. Wir fragen mündlich ab, ob eine photosensitive Epilepsie, photosensitive Migräne oder eine andere neurologische oder psychiatrische Erkrankung (schwere Depression, ADHS, Autismus o.ä.) vorliegt.
+:::
+::: {.content-visible when-profile="en"}
 1. We verbally query whether there is photosensitive epilepsy, photosensitive migraine or any other neurological disorder (major depression, ADHD, autism, or similar).
+:::
 
+
+`r if (toml$Consentform$use_eeg!=TRUE) ":::: {.content-hidden}"`
+::: {.content-visible when-profile="de"}
+1. EEG: Sie ziehen eine EEG-Kappe an. Mit einer stumpfen Nadel wird ein Elektrodengel (ähnlich wie bei Ultraschall) aufgetragen und die oberste Schicht der Kopfhaut sanft aufgeraut, um eine ideale Leitfähigkeit herzustellen.
+:::
+::: {.content-visible when-profile="en"}
 1. EEG: You put on an EEG cap. An electrode gel (similar to ultrasound) is applied with a blunt needle and the top layer of the scalp is gently roughened to create ideal conductivity.
+:::
+`r if (toml$Consentform$use_eeg!=TRUE) "::::"`
 
+
+
+
+`r if (toml$Consentform$use_eyetracking!=TRUE) ":::: {.content-hidden}"`
+::: {.content-visible when-profile="de"}
+1. Eye-Tracking: Der Eye-Tracker muss kalibriert werden, dazu wird ein sich bewegender Punkt auf dem Bildschirm angezeigt, dem Sie mit ihrem Blick folgen.
+:::
+::: {.content-visible when-profile="en"}
 1. Eye-tracking: The eye tracker needs to be calibrated, for this, a moving dot will appear on the monitor which you will follow with your gaze.
+:::
+`r if (toml$Consentform$use_eyetracking!=TRUE) "::::"`
 
+
+
+::: {.content-visible when-profile="de"}
+1. Es werden Ihnen verschiedene Bilder auf dem Monitor präsentiert. Ihre Aufgabe ist es, die Bilder frei zu erkunden.
+:::
+::: {.content-visible when-profile="en"}
 1. We will present different pictures on the screen. Your task is to freely explore these pictures.
+:::
 
+
+`r if (toml$Consentform$use_eeg!=TRUE) ":::: {.content-hidden}"`
+::: {.content-visible when-profile="de"}
+1. Die EEG-Kappe wird abgenommen und Sie können sich das Gel aus den Haaren waschen.
+:::
+::: {.content-visible when-profile="en"}
 1. The EEG cap will be removed and you can wash the gel out of your hair.
+:::
+`r if (toml$Consentform$use_eeg!=TRUE) "::::"`
 
+
+
+::: {.content-visible when-profile="de"}
+Inklusive der Fragebögen und Vorbereitungen, dauert der Versuch ca. 3 Stunden.
+:::
+::: {.content-visible when-profile="en"}
 Including the questionnaires and preparations, the experiment takes about 3 hours.
 :::
+
 
 ::: {.content-visible when-profile="de"}
 ## 3) **Risiken und Nebenwirkungen**
@@ -128,6 +165,7 @@ According to current knowledge, this study is harmless and painless for the part
 
 **Important:** Please inform the experimenter immediately if you have a neurological disease, if strong (light) stimulation can trigger migraine, or if you have had an epileptic seizure. If you have any questions about this, please contact the experimental investigator.
 :::
+
 
 ::: {.content-visible when-profile="de"}
 ## 4) **Abbruch der Studie**
@@ -202,5 +240,5 @@ I hereby confirm that I have understood the participant information described ab
 
 .........................................................................
 
-Place, date, signature
+Place, Date, Signature
 :::
