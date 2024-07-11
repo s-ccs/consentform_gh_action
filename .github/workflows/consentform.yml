@@ -1,4 +1,4 @@
-on: [push,fork]
+on: push
 name: Render and Publish v2
 
 jobs:
@@ -17,12 +17,12 @@ jobs:
           r-version: '4.2.0'
       - name: install dependencies
         run: |
-          R -e 'install.packages("RcppTOML")'
+          R -e 'install.packages(c("rmarkdown","RcppTOML"))'
 
       - name: Render Website + Slides
         uses: quarto-dev/quarto-actions/render@v2
         env: 
-          default: en
+          QUARTO_PROFILE: en
         with:
           to: pdf
       - name: Upload
