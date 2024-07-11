@@ -3,3 +3,5 @@ profile:
 
 editor:
   render-on-save: true
+
+mainfont: "Carlito"
