@@ -1,0 +1,18 @@
+on:
+  push:
+    paths:
+      - project*.toml
+jobs:
+   build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Read project.toml
+      id: package
+      uses: jaywcjlove/github-action-read-file@main
+      with:
+        path: project*.toml
+  
+    - name: Generate Forms
+      uses: s-ccs/consentform_gh_action@main
+      with:
+        projecttoml: "${{ steps.package.outputs.content }}"
