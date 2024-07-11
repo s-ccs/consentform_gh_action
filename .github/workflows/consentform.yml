@@ -45,6 +45,6 @@ jobs:
       - name: Upload
         uses: actions/upload-artifact@v3
         with:
-          name: consent
-          path: consent.pdf
+          name: consent_${{ matrix.language }}
+          path: consent_${{ matrix.language }}.pdf
           
