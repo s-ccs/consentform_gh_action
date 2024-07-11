@@ -43,7 +43,7 @@ jobs:
         with:
           to: pdf
       - name: Upload
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: consent_${{ matrix.language }}
           path: consent_${{ matrix.language }}.pdf
