@@ -1,23 +1,30 @@
-on: push
-name: Render and Publish v2
+name: 'Experimental Forms Generator'
+description: 'This automatically generates the CCS Stuttgart experimental consent & experiment forms'
 
+inputs:
+  language:
+    description: 'language en or de'
+    default: 'en'
+    required: true
+  token:
+        required: false
+        description: 'Personal access token (PAT) used to fetch the repository.'
+        default: ${{ github.token }}
 jobs:
-  build-deploy:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        language: 
-          - de
-          - en
+
     
     steps:
+      - name: Download math result for job 1
+        uses: actions/download-artifact@v4
+        with:
+          name: project.toml
       - name: Check out repository
         uses: actions/checkout@v4
         
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ inputs.token }}
         with:
           tinytex: true
           
@@ -39,12 +46,12 @@ jobs:
       - name: Render Website + Slides
         uses: quarto-dev/quarto-actions/render@v2
         env: 
-          QUARTO_PROFILE: ${{ matrix.language }}
+          QUARTO_PROFILE: ${{ inputs.language }}
         with:
           to: pdf
       - name: Upload
         uses: actions/upload-artifact@v4
         with:
-          name: consent_${{ matrix.language }}
+          name: consent_${{ inputs.language }}
           path: consent.pdf
           
