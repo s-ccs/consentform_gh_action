@@ -8,13 +8,6 @@ jobs:
           - de
           - en
     steps:
-      - name: Upload project.toml
-        uses: actions/upload-artifact@v4
-        with:
-          name: project.toml
-          path: ./*
-          if-no-files-found: error
-  
       - name: Generate Forms
         uses: s-ccs/consentform_gh_action@main
         with:
