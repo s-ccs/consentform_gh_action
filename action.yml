@@ -40,6 +40,7 @@ runs:
            path: ${{ env.R_LIBS_USER }} 
            key: r-localv1
       - name: install dependencies
+        shell: bash
         run: |
           R -e 'install.packages(c("rmarkdown","RcppTOML"))'
 
