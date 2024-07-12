@@ -7,8 +7,8 @@ In order to use this:
 on:
  push:
   paths:
-    project*.toml
-    .github/workflows/forms.yml
+    - project*.toml
+    - .github/workflows/forms.yml
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
