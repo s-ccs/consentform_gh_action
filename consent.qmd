@@ -9,7 +9,8 @@ execute:
 
 ```{r,setup}
 library(RcppTOML)
-toml = parseTOML("example_project.toml")
+files = Sys.glob(file.path(getwd(), '*toml'))
+toml = parseTOML("files[1]")
 
 ```
 
