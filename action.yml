@@ -45,6 +45,7 @@ runs:
           QUARTO_PROFILE: ${{ inputs.language }}
         with:
           to: pdf
+          path: ${{github.action_path}}
       - name: Upload
         uses: actions/upload-artifact@v4
         with:
