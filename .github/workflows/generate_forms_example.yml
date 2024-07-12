@@ -1,18 +1,20 @@
-on:
-  push:
-    paths:
-      - project*.toml
+on: push
 jobs:
-   build-deploy:
+  build-deploy:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        language: 
+          - de
+          - en
     steps:
-    - name: Read project.toml
-      id: package
-      uses: jaywcjlove/github-action-read-file@main
-      with:
-        path: project*.toml
+      - name: Upload project.toml
+        uses: actions/upload-artifact@v4
+        with:
+          name: project.toml
+          path: project*.toml
   
-    - name: Generate Forms
-      uses: s-ccs/consentform_gh_action@main
-      with:
-        projecttoml: "${{ steps.package.outputs.content }}"
+      - name: Generate Forms
+        uses: s-ccs/consentform_gh_action@main
+        with:
+         language: ${{ matrix.language }}
