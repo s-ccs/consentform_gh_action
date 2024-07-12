@@ -4,7 +4,10 @@ In order to use this:
 2. Fill in:
 
 ```yml
-on: push
+on:
+ push:
+  paths:
+    project*.toml
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
