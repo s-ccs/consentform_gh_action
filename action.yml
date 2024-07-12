@@ -10,10 +10,10 @@ inputs:
         required: false
         description: 'Personal access token (PAT) used to fetch the repository.'
         default: ${{ github.token }}
-jobs:
-
+runs:
+  using: "composite"
+  steps:
     
-    steps:
       - name: Download math result for job 1
         uses: actions/download-artifact@v4
         with:
