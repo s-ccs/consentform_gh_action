@@ -12,7 +12,8 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: project.toml
-          path: project*toml
+          path: ./project_*.toml
+          if-no-files-found: error
   
       - name: Generate Forms
         uses: s-ccs/consentform_gh_action@main
