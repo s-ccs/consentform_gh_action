@@ -39,12 +39,12 @@ runs:
         run: |
           R -e 'install.packages(c("rmarkdown","RcppTOML"))'
 
-      - name: Render Website + Slides
+      - name: Render form
         uses: quarto-dev/quarto-actions/render@v2
         env: 
           QUARTO_PROFILE: ${{ inputs.language }}
         with:
-          to: pdf
+          to: custom-typst
           path: ${{github.action_path}}
       - name: Upload
         uses: actions/upload-artifact@v4
