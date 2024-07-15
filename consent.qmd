@@ -10,26 +10,16 @@ execute:
 ```{r,setup}
 library(RcppTOML)
 files = Sys.glob(file.path(getwd(), '*toml'))
-toml = parseTOML(files[1])
-
+toml = parseTOML(files[1], escape=FALSE)
 ```
 
 :::: {.block fill="none" inset="0pt" radius="4pt" width="60%"}
 ::: {.content-visible when-profile="de"}
-Verantwortlicher Wissenschaftler: Benedikt Ehinger
+`r toml$Consentform$researcher_details_de`
 :::
 ::: {.content-visible when-profile="en"}
-Responsible Principal Investigator: Benedikt Ehinger
+`r toml$Consentform$researcher_details_en`
 :::
-Institut für Visualisierung und Interaktive Systeme (VIS) 
-\
-University of Stuttgart
-\
-Universitätstraße 34
-\
-70569 Stuttgart
-\
-E-mail: benedikt.ehinger@vis.uni-stuttgart.de
 ::::
 
 \
@@ -45,22 +35,24 @@ E-mail: benedikt.ehinger@vis.uni-stuttgart.de
 
 ::: {.content-visible when-profile="de"}
 Sehr geehrte Teilnehmerin, sehr geehrter Teilnehmer,   
+
 Sie haben sich freiwillig zur Teilnahme an dieser Studie gemeldet. Hier erhalten Sie nun einige Informationen zu Ihren Rechten und zum Ablauf des folgenden Experiments. Bitte lesen Sie sich die folgenden Abschnitte sorgfältig durch.
 :::
 ::: {.content-visible when-profile="en"}
 Dear participant,
+
 You have volunteered to participate in this study. Here you will now receive some information about your rights and the procedure of the following experiment. Please read the following sections carefully. 
 :::
 
 ::: {.content-visible when-profile="de"}
 ## 1) **Ziel der Studie**
 
-In dieser Studie untersuchen wir, wie Menschen Bilder wahrnehmen, indem wir die Gehirnaktivität mit EEG und die Augenbewegungen mit einem Eye-Tracker aufzeichnen.
+`r toml$Consentform$study_purpose_de`
 :::
 ::: {.content-visible when-profile="en"}
 ## 1) **Purpose of the study**
 
-In this study, we will investigate how humans perceive images by recording brain activity with EEG and eye movements using an eye-tracker.
+`r toml$Consentform$study_purpose_en`
 :::
 
 
@@ -83,10 +75,10 @@ The study will proceed as follows:
 :::
 
 ::: {.content-visible when-profile="de"}
-1. Wir fragen mündlich ab, ob eine photosensitive Epilepsie, photosensitive Migräne oder eine andere neurologische oder psychiatrische Erkrankung (schwere Depression, ADHS, Autismus o.ä.) vorliegt.
+1. Wir fragen mündlich ab, ob eine photosensitive Epilepsie, photosensitive Migräne, Farbenblindheit, oder eine andere neurologische oder psychiatrische Erkrankung (schwere Depression, ADHS, Autismus o.ä.) vorliegt.
 :::
 ::: {.content-visible when-profile="en"}
-1. We verbally query whether there is photosensitive epilepsy, photosensitive migraine or any other neurological disorder (major depression, ADHD, autism, or similar).
+1. We verbally query whether there is colour-blindness, photosensitive epilepsy, photosensitive migraine or any other neurological disorder (major depression, ADHD, autism, or similar).
 :::
 
 
@@ -113,10 +105,10 @@ The study will proceed as follows:
 
 
 ::: {.content-visible when-profile="de"}
-1. Es werden Ihnen verschiedene Bilder auf dem Monitor präsentiert. Ihre Aufgabe ist es, die Bilder frei zu erkunden.
+1. `r toml$Consentform$study_task_de`
 :::
 ::: {.content-visible when-profile="en"}
-1. We will present different pictures on the screen. Your task is to freely explore these pictures.
+1. `r toml$Consentform$study_task_en`
 :::
 
 
@@ -133,10 +125,10 @@ The study will proceed as follows:
 
 
 ::: {.content-visible when-profile="de"}
-Inklusive der Fragebögen und Vorbereitungen, dauert der Versuch ca. 3 Stunden.
+Inklusive der Fragebögen und Vorbereitungen, dauert der Versuch ca. `r toml$Consentform$study_duration_hrs` Stunden.
 :::
 ::: {.content-visible when-profile="en"}
-Including the questionnaires and preparations, the experiment takes about 3 hours.
+Including the questionnaires and preparations, the experiment takes about `r toml$Consentform$study_duration_hrs` hours.
 :::
 
 
@@ -145,14 +137,14 @@ Including the questionnaires and preparations, the experiment takes about 3 hour
 
 Diese Studie ist nach derzeitigem Wissensstand ungefährlich und für die Teilnehmenden schmerzfrei. Durch Ihre Teilnahme an dieser Studie setzen Sie sich keinen besonderen Risiken aus und es sind keine Nebenwirkungen bekannt. Da diese Studie in Ihrer Gesamtheit neu ist, kann das Auftreten von noch unbekannten Nebenwirkungen allerdings nicht ausgeschlossen werden.
 
-**Wichtig:** Teilen Sie dem Versuchsleiter bitte umgehend mit, falls Sie an einer neurologischen Krankheit erkrankt sind, starke (Licht-)Stimulation Migräne auslösen kann, oder Sie einen epileptischen Anfall hatten. Bei Fragen hierzu wenden Sie sich bitte an die Versuchsleitung.
+**Wichtig:** Teilen Sie dem Versuchsleiter bitte umgehend mit, falls Sie an Farbenblindheit oder an einer neurologischen Krankheit erkrankt sind, starke (Licht-)Stimulation Migräne auslösen kann, oder Sie einen epileptischen Anfall hatten. Bei Fragen hierzu wenden Sie sich bitte an die Versuchsleitung.
 :::
 ::: {.content-visible when-profile="en"}
 ## 3) **Risks and side effects**
 
-According to current knowledge, this study is harmless and painless for the participants. By participating in this study, you are not exposing yourself to any particular risks and there are no known side effects. In the case of virtual reality experiments, exposure may cause motion sickness or eye strain. However, because this study is new in its entirety, the occurrence of as-yet-unknown side effects cannot be completely ruled out. 
+According to current knowledge, this study is harmless and painless for the participants. By participating in this study, you are not exposing yourself to any particular risks and there are no known side effects. `r if (toml$Consentform$use_vr) "In the case of virtual reality experiments, exposure may cause motion sickness or eye strain."` However, because this study is new in its entirety, the occurrence of as-yet-unknown side effects cannot be completely ruled out. 
 
-**Important:** Please inform the experimenter immediately if you have a neurological disease, if strong (light) stimulation can trigger migraine, or if you have had an epileptic seizure. If you have any questions about this, please contact the experimental investigator.
+**Important:** Please inform the experimenter immediately if you have colour-blindness or a neurological disease, if strong (light) stimulation can trigger migraine, or if you have had an epileptic seizure. If you have any questions about this, please contact the experimental investigator.
 :::
 
 
@@ -201,11 +193,11 @@ The study will be remunerated with `r toml$Consentform$pay_per_hour` € per hou
 
 Hiermit versichere ich, dass ich die oben beschriebenen Teilnahmeinformationen verstanden habe und mit den genannten Teilnahmebedingungen einverstanden bin, insbesondere mit:
 
-*- einer unbegrenzten Speicherung meiner pseudonymisierten Daten.*
+- *einer unbegrenzten Speicherung meiner pseudonymisierten Daten.*
 
-*- einer Nutzung meiner pseudonymisierten Daten für das aktuelle Forschungsprojekt und für weitere ausschließlich wissenschaftliche Zwecke.*
+- *einer Nutzung meiner pseudonymisierten Daten für das aktuelle Forschungsprojekt und für weitere ausschließlich wissenschaftliche Zwecke.*
 
-*- einer Veröffentlichung meiner pseudonymisierten Daten als offene Daten.*
+- *einer Veröffentlichung meiner pseudonymisierten Daten als offene Daten.*
 
 \
 \
@@ -220,11 +212,11 @@ Ort, Datum, Unterschrift
 
 I hereby confirm that I have understood the participant information described above and that I agree to the stated conditions of participation, in particular:
 
-*- an unlimited storage of my pseudonymized data.*
+- *an unlimited storage of my pseudonymized data.*
 
-*- the usage of my pseudonymized data for the current research project and for other exclusively scientific purposes.*
+- *the usage of my pseudonymized data for the current research project and for other exclusively scientific purposes.*
 
-*- a publication of my pseudonymized data as open data.*
+- *a publication of my pseudonymized data as open data.*
  
 \
 \

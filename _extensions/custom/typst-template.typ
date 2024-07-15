@@ -15,7 +15,7 @@
   cols: 2,
   margin: (left: 20mm, right: 20mm, top: 3cm, bottom: 20mm),
   paper: "a4",
-  font: (),
+  font: ("libertine"),
   fontsize: 12pt,
   sectionnumbering: none,
   toc_title: false,
