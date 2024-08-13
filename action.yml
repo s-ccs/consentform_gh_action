@@ -46,9 +46,14 @@ runs:
         with:
           to: custom-typst
           path: ${{github.action_path}}
-      - name: Upload
+      - name: Upload consent form
         uses: actions/upload-artifact@v4
         with:
           name: consent_${{ inputs.language }}
           path: ${{github.action_path}}/consent.pdf
+      - name: Upload data privacy form
+        uses: actions/upload-artifact@v4
+        with:
+          name: data_privacy_${{ inputs.language }}
+          path: ${{github.action_path}}/data_privacy.pdf
           
