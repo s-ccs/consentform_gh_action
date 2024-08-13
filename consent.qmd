@@ -135,7 +135,7 @@ Including the questionnaires and preparations, the experiment takes about `r tom
 ::: {.content-visible when-profile="de"}
 ## 3) **Risiken und Nebenwirkungen**
 
-Diese Studie ist nach derzeitigem Wissensstand ungefährlich und für die Teilnehmenden schmerzfrei. Durch Ihre Teilnahme an dieser Studie setzen Sie sich keinen besonderen Risiken aus und es sind keine Nebenwirkungen bekannt. Da diese Studie in Ihrer Gesamtheit neu ist, kann das Auftreten von noch unbekannten Nebenwirkungen allerdings nicht ausgeschlossen werden.
+Diese Studie ist nach derzeitigem Wissensstand ungefährlich und für die Teilnehmenden schmerzfrei. Durch Ihre Teilnahme an dieser Studie setzen Sie sich keinen besonderen Risiken aus und es sind keine Nebenwirkungen bekannt. Da diese Studie in Ihrer Gesamtheit neu ist, kann das Auftreten von noch unbekannten Nebenwirkungen allerdings nicht ausgeschlossen werden. `r if (toml$Consentform$use_vr) "Bei Experimenten mit virtueller Realität (VR) kann es zu Virtuelle-Realitäts-Krankheit (Motion Sickness) oder zu einer Überanstrengung der Augen kommen."`
 
 **Wichtig:** Teilen Sie dem Versuchsleiter bitte umgehend mit, falls Sie an Farbenblindheit oder an einer neurologischen Krankheit erkrankt sind, starke (Licht-)Stimulation Migräne auslösen kann, oder Sie einen epileptischen Anfall hatten. Bei Fragen hierzu wenden Sie sich bitte an die Versuchsleitung.
 :::
@@ -203,9 +203,8 @@ Hiermit versichere ich, dass ich die oben beschriebenen Teilnahmeinformationen v
 \
 \
 
-.........................................................................
+Ort, Datum, Unterschrift: .........................................................................
 
-Ort, Datum, Unterschrift
 :::
 ::: {.content-visible when-profile="en"}
 ## 7) **Declaration of consent**
@@ -222,7 +221,6 @@ I hereby confirm that I have understood the participant information described ab
 \
 \
 
-.........................................................................
+Place, Date, Signature: .........................................................................
 
-Place, Date, Signature
 :::
