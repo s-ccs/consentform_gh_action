@@ -178,12 +178,12 @@ Your data will only be stored in pseudonymized form (e.g. "sub-003"). The mappin
 ::: {.content-visible when-profile="de"}
 ## 6) **Vergütung** 
 
-Die Studie wird mit `r toml$Consentform$pay_per_hour` € pro Stunde vergütet. Angefangene halbe Stunden werden aufgerundet.
+Die Studie wird mit `r toml$Consentform$pay_per_hour` € pro Stunde vergütet, abgerechnet nach angefangenen halben Stunden
 :::
 ::: {.content-visible when-profile="en"}
 ## 6) **Remuneration**
 
-The study will be remunerated with `r toml$Consentform$pay_per_hour` € per hour. Partial half hours will be rounded up. 
+The study will be remunerated with `r toml$Consentform$pay_per_hour` € per hour, with payment rounded up to the nearest half hour. 
 :::
 
 
