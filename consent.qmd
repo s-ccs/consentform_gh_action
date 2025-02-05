@@ -68,19 +68,18 @@ The study will proceed as follows:
 :::
 
 ::: {.content-visible when-profile="de"}
-1. Wir führen einen Sehtest durch (Sehschärfe und dominantes Auge). 
-:::
-::: {.content-visible when-profile="en"}
-1. We perform an eye test (visual acuity and dominant eye). 
-:::
-
-::: {.content-visible when-profile="de"}
 1. Wir fragen mündlich ab, ob eine photosensitive Epilepsie, photosensitive Migräne, Farbenblindheit, oder eine andere neurologische oder psychiatrische Erkrankung (schwere Depression, ADHS, Autismus o.ä.) vorliegt.
 :::
 ::: {.content-visible when-profile="en"}
 1. We verbally query whether there is colour-blindness, photosensitive epilepsy, photosensitive migraine or any other neurological disorder (major depression, ADHD, autism, or similar).
 :::
 
+::: {.content-visible when-profile="de"}
+1. Wir führen einen Sehtest durch (Sehschärfe und dominantes Auge). 
+:::
+::: {.content-visible when-profile="en"}
+1. We perform an eye test (visual acuity and dominant eye). 
+:::
 
 `r if (toml$Consentform$use_eeg!=TRUE) ":::: {.content-hidden}"`
 ::: {.content-visible when-profile="de"}
