@@ -1,0 +1,34 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: CCS Consent form Github action
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Benedikt Valerian
+    family-names: Ehinger
+    email: benedikt.ehinger@vis.uni-stuttgart.de
+    affiliation: University of Stuttgart
+    orcid: 'https://orcid.org/0000-0002-6276-3332'
+  - given-names: Maanik
+    family-names: Marathe
+    affiliation: University of Stuttgart
+  - given-names: Judith
+    family-names: Schepers
+    email: judith.schepers@vis.uni-stuttgar.tde
+    affiliation: University of Stuttgart
+    orcid: 'https://orcid.org/0009-0000-9270-730X'
+repository-code: 'https://github.com/s-ccs/consentform_gh_action/'
+abstract: >-
+  Providing a .toml configuration file, this tool
+  automatically generates consent forms and data privacy
+  forms, initially based on the openbrainconsent-form. 
+keywords:
+  - consent form
+  - data privacy
+  - neuroimaging
+  - EEG
+license: MIT
