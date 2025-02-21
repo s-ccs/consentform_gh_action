@@ -29,3 +29,6 @@ The toml file currently needs the following fields:
 
 
 **TBD**
+
+# Citation
+If you use this tool, please cite [![DOI](https://zenodo.org/badge/796770945.svg)](https://doi.org/10.5281/zenodo.14906238)
