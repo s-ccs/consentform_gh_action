@@ -19,7 +19,7 @@ jobs:
           - en
     steps:
       - name: Generate Forms
-        uses: s-ccs/consentform_gh_action@main
+        uses: s-ccs/consentform_gh_action@latest
         with:
          language: ${{ matrix.language }}
 ```
