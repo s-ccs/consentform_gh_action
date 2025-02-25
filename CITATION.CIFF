@@ -18,7 +18,7 @@ authors:
     affiliation: University of Stuttgart
   - given-names: Judith
     family-names: Schepers
-    email: judith.schepers@vis.uni-stuttgar.tde
+    email: judith.schepers@vis.uni-stuttgart.de
     affiliation: University of Stuttgart
     orcid: 'https://orcid.org/0009-0000-9270-730X'
 repository-code: 'https://github.com/s-ccs/consentform_gh_action/'
