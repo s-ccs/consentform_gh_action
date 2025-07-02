@@ -25,7 +25,7 @@
   set page(
     paper: paper,
     margin: margin,
-    numbering: "1",
+    //numbering: "1",
     header: align(right)[
       #image("unistuttgartlogo.png", width: 40%)
     ]
