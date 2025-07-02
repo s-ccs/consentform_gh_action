@@ -27,8 +27,37 @@ jobs:
 
 The toml file currently needs the following fields:
 
+```toml
+[Consentform]
+    pay_per_hour = 15
+	   study_duration_hrs = 3
 
-**TBD**
+    use_eeg = false
+    use_eyetracking = true
+	use_vr = false
 
+	study_purpose_de = """In dieser Studie untersuchen wir, wie Menschen Bilder wahrnehmen, indem wir die Gehirnaktivität mit EEG und die Augenbewegungen mit einem Eye-Tracker aufzeichnen."""
+	study_purpose_en = "In this study, we will investigate how humans perceive images by recording brain activity with EEG and eye movements using an eye-tracker."
+    
+	study_task_de =  "Es werden Ihnen verschiedene Bilder auf dem Monitor präsentiert. Ihre Aufgabe ist es, die Bilder frei zu erkunden."
+	study_task_en = "We will present different pictures on the screen. Your task is to freely explore these pictures."
+	
+	researcher_details_de = """Verantwortliche Person: Benedikt Ehinger  
+								Computational Cognitive Science (CCS)  
+								Institut für Visualisierung und Interaktive Systeme (VIS)   
+								Universität Stuttgart  
+								Universitätsstraße 32  
+								70569 Stuttgart  
+								E-mail: benedikt.ehinger@vis.uni-stuttgart.de"""
+	researcher_details_en = """Responsible Principal Investigator: Benedikt Ehinger  
+								Computational Cognitive Science (CCS)  
+								Institute for Visualisation and Interactive Systems (VIS)   
+								University of Stuttgart  
+								Universitätsstraße 32  
+								70569 Stuttgart  
+								E-mail: benedikt.ehinger@vis.uni-stuttgart.de"""
+
+	data_processing_contactperson = "Benedikt Ehinger (benedikt.ehinger@vis.uni-stuttgart.de)"
+```
 # Citation
 If you use this tool, please cite [![DOI](https://zenodo.org/badge/796770945.svg)](https://doi.org/10.5281/zenodo.14906238)
