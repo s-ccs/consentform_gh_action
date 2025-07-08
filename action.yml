@@ -41,7 +41,7 @@ runs:
           R -e 'install.packages(c("rmarkdown","RcppTOML"))'
   
       - name: Download project TOML file
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: _callerproject.toml
       - name: Render form
