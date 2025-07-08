@@ -10,7 +10,7 @@ jobs:
     steps:
     
       - name: Upload project TOML file as artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: _callerproject.toml
           path: project_*.toml
