@@ -18,6 +18,7 @@ runs:
   using: "composite"
   steps:
       - name: Save project TOML content to file
+        shell: bash
         run: |
           # Write the input content to _project.toml
           echo "${{ inputs.project_toml }}" > _project.toml
