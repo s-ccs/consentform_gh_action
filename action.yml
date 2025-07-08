@@ -71,11 +71,11 @@ runs:
       - name: 'Render manually'
         env:
          QUARTO_PRINT_STACK: true
+         QUARTO_PROFILE: ${{ inputs.language }}
         run: |
           quarto render ${{ github.action_path }} --to custom-typst
         shell: bash
-        env: 
-          QUARTO_PROFILE: ${{ inputs.language }}
+        
       - name: Upload consent form
         uses: actions/upload-artifact@v4
         with:
