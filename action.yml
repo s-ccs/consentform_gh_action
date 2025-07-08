@@ -10,13 +10,17 @@ inputs:
         required: false
         description: 'Personal access token (PAT) used to fetch the repository.'
         default: ${{ github.token }}
+  
+  project_toml:
+     required: true
+     type: string
 runs:
   using: "composite"
   steps:
-      - name: Download project TOML file
-        uses: actions/download-artifact@v4
-        with:
-          name: _callerproject.toml
+      - name: Save project TOML content to file
+        run: |
+          # Write the input content to _project.toml
+          echo "${{ inputs.project_toml }}" > _project.toml
           
       - name: Check out repository
         uses: actions/checkout@v4
