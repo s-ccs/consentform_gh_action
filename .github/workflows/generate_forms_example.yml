@@ -4,19 +4,8 @@ on:
     - project*.toml
     - .github/workflows/forms.yml
 jobs:
-  upload-artefact:
-    runs-on: ubuntu-latest
-    steps:
-      - name: checkout repo
-        uses: actions/checkout@v4
-      - name: Upload project TOML file as artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: _callerproject.toml
-          path: project_*.toml
-          overwrite: true
-          if-no-files-found: error
-  build-deploy:
+
+  ask-for-consent:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -24,7 +13,16 @@ jobs:
           - de
           - en
     steps:
+    
+      - name: checkout repo
+        uses: actions/checkout@v4
+      - name: Read project TOML file
+        id: read_toml
+        run: |
+          toml_content=$(cat project_*.toml)
+          echo "toml_content=$toml_content" >> $GITHUB_OUTPUT
       - name: Generate Forms
         uses: s-ccs/consentform_gh_action@main
         with:
          language: ${{ matrix.language }}
+         project_toml: ${{ steps.read_toml.outputs.toml_content }}
