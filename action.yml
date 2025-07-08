@@ -22,7 +22,10 @@ runs:
         run: |
           # Write the input content to _project.toml
           echo "${{ inputs.project_toml }}"  | base64 --decode > _project.toml
-          
+      - name: Verify file content
+        shell: bash
+        run: |
+          cat _project.toml
       - name: Check out repository
         uses: actions/checkout@v4
         
