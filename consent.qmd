@@ -2,15 +2,16 @@
 format:
     custom-typst:
         paper: a4
+        keep-typ: false
+
+
 execute:
     echo: false
-
 ---
 
 ```{r,setup}
 library(RcppTOML)
-files = Sys.glob(file.path(getwd(), '*toml'))
-toml = parseTOML(files[1], escape=FALSE)
+toml = parseTOML("_project.toml", escape=FALSE)
 ```
 
 :::: {.block fill="none" inset="0pt" radius="4pt" width="60%"}
