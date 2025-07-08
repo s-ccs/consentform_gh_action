@@ -67,13 +67,15 @@ runs:
         with:
           tinytex: true
           version: 1.5.45
-      - name: Render form
-        uses: quarto-dev/quarto-actions/render@v2
-        env: 
-          QUARTO_PROFILE: ${{ inputs.language }}
-        with:
-          to: custom-typst
-          path: ${{github.action_path}}
+
+      - name: 'Render manually'
+        env:
+         QUARTO_PRINT_STACK: true
+         QUARTO_PROFILE: ${{ inputs.language }}
+        run: |
+          quarto render ${{ github.action_path }} --to custom-typst
+        shell: bash
+        
       - name: Upload consent form
         uses: actions/upload-artifact@v4
         with:
