@@ -8,6 +8,12 @@ jobs:
           - de
           - en
     steps:
+    
+      - name: Upload project TOML file as artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: _callerproject.toml
+          path: project_*.toml
       - name: Generate Forms
         uses: s-ccs/consentform_gh_action@main
         with:
