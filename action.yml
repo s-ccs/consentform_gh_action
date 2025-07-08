@@ -39,7 +39,11 @@ runs:
         shell: bash
         run: |
           R -e 'install.packages(c("rmarkdown","RcppTOML"))'
-
+  
+      - name: Download project TOML file
+        uses: actions/download-artifact@v3
+        with:
+          name: _callerproject.toml
       - name: Render form
         uses: quarto-dev/quarto-actions/render@v2
         env: 
