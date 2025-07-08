@@ -53,8 +53,8 @@ runs:
           Rscript -e '
             toml_file <- "_project.toml"
             if (file.exists(toml_file)) {
-              library(RccpTOML)
-              toml_content <- readTOML(toml_file)
+              library(RcppTOML)
+              toml_content <- parseTOML(toml_file)
               print(toml_content)
             } else {
               stop("File not found: ", toml_file)
