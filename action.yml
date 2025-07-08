@@ -17,6 +17,9 @@ inputs:
 runs:
   using: "composite"
   steps:
+   
+      - name: Check out repository
+        uses: actions/checkout@v4
       - name: Save project TOML content to file
         shell: bash
         run: |
@@ -26,9 +29,6 @@ runs:
         shell: bash
         run: |
           cat _project.toml
-      - name: Check out repository
-        uses: actions/checkout@v4
-        
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
         env:
