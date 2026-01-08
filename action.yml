@@ -39,7 +39,7 @@ runs:
       - name: Install Python dependencies
         shell: bash
         run: |
-          pip install tomli
+          pip install tomli jupyter
 
       - name: Validate/Debug TOML
         shell: bash
