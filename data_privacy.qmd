@@ -10,7 +10,7 @@ execute:
 
 ```{python,setup}
 import tomli
-with open("_pyproject.toml", "rb") as f:
+with open("_project.toml", "rb") as f:
     toml = tomli.load(f)
 ```
 
