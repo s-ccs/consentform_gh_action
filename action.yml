@@ -31,35 +31,30 @@ runs:
           cat _project.toml
 
           
-      - name: Install R
-        uses: r-lib/actions/setup-r@v2
+      - name: Set up Python
+        uses: actions/setup-python@v4
         with:
-          r-version: '4.5.1'
+          python-version: '3.11'
 
-      - name: Cache R packages 
-        uses: actions/cache@v4
-        with: 
-           path: ${{ env.R_LIBS_USER }} 
-           key: r-localv1
-      - name: install dependencies
+      - name: Install Python dependencies
         shell: bash
         run: |
-          R -e 'install.packages(c("rmarkdown","RcppTOML"))'
+          pip install tomli
 
-      - name: Validate/Debug R-TOML
+      - name: Validate/Debug TOML
         shell: bash
         run: |
-          # Example R script call using the absolute path
-          Rscript -e '
-            toml_file <- "_project.toml"
-            if (file.exists(toml_file)) {
-              library(RcppTOML)
-              toml_content <- parseTOML(toml_file)
-              print(toml_content)
-            } else {
-              stop("File not found: ", toml_file)
-            }
-          '
+          python3 << 'EOF'
+          import tomli
+          import os
+          toml_file = "_project.toml"
+          if os.path.exists(toml_file):
+              with open(toml_file, "rb") as f:
+                  toml_content = tomli.load(f)
+                  print(toml_content)
+          else:
+              raise FileNotFoundError(f"File not found: {toml_file}")
+          EOF
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
         env:

@@ -8,17 +8,18 @@ execute:
 
 ---
 
-```{r,setup}
-library(RcppTOML)
-toml = parseTOML("_project.toml", escape=FALSE)
+```{python,setup}
+import tomli
+with open("_pyproject.toml", "rb") as f:
+    toml = tomli.load(f)
 ```
 
 :::: {.block fill="none" inset="0pt" radius="4pt" width="60%"}
 ::: {.content-visible when-profile="de"}
-`r toml$Consentform$researcher_details_de`
+`{python} toml['Consentform']['researcher_details_de']`
 :::
 ::: {.content-visible when-profile="en"}
-`r toml$Consentform$researcher_details_en`
+`{python} toml['Consentform']['researcher_details_en']`
 :::
 ::::
 
@@ -133,7 +134,7 @@ For general information about your rights regarding the processing of your perso
 If you have questions about your rights, please contact the person responsible for the processing of your personal data. For this study, that is:
 :::
 
-- `r toml$Consentform$data_processing_contactperson`
+- `{python} toml['Consentform']['data_processing_contactperson']`
 
 ::: {.content-visible when-profile="de"}
 Wenn Sie Fragen oder Beschwerden über die Verarbeitung Ihrer persönlichen Daten haben, empfehlen wir Ihnen, sich zunächst an die Forschungsstelle zu wenden. Sie können sich auch an den Datenschutzbeauftragten der Universität Stuttgart oder an die Datenschutzbehörde von Baden-Württemberg wenden.  

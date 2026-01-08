@@ -9,17 +9,29 @@ execute:
     echo: false
 ---
 
-```{r,setup}
-library(RcppTOML)
-toml = parseTOML("_project.toml", escape=FALSE)
+```{python,setup}
+import tomli
+with open("_pyproject.toml", "rb") as f:
+    toml = tomli.load(f)
+
+
+def ifno(c,s):
+    ifyes(not c,s)
+
+
+def ifyes(c,s):
+    if c:
+        s
+    else:
+        ""
 ```
 
 :::: {.block fill="none" inset="0pt" radius="4pt" width="60%"}
 ::: {.content-visible when-profile="de"}
-`r toml$Consentform$researcher_details_de`
+`{python} toml['Consentform']['researcher_details_de']`
 :::
 ::: {.content-visible when-profile="en"}
-`r toml$Consentform$researcher_details_en`
+`{python} toml['Consentform']['researcher_details_en']`
 :::
 ::::
 
@@ -48,12 +60,12 @@ You have volunteered to participate in this study. Here you will now receive som
 ::: {.content-visible when-profile="de"}
 ## 1) **Ziel der Studie**
 
-`r toml$Consentform$study_purpose_de`
+`{python} toml['Consentform']['study_purpose_de']`
 :::
 ::: {.content-visible when-profile="en"}
 ## 1) **Purpose of the study**
 
-`r toml$Consentform$study_purpose_en`
+`{python} toml['Consentform']['study_purpose_en']`
 :::
 
 
@@ -82,67 +94,67 @@ The study will proceed as follows:
 1. We perform an eye test (visual acuity and dominant eye). 
 :::
 
-`r if (toml$Consentform$use_eeg!=TRUE) ":::: {.content-hidden}"`
+`{python} ifno(toml['Consentform']['use_eeg'], ":::: {.content-hidden}")`
 ::: {.content-visible when-profile="de"}
 1. EEG: Sie ziehen eine EEG-Kappe an. Mit einer stumpfen Nadel wird ein Elektrodengel (ähnlich wie bei Ultraschall) aufgetragen und die oberste Schicht der Kopfhaut sanft aufgeraut, um eine ideale Leitfähigkeit herzustellen.
 :::
 ::: {.content-visible when-profile="en"}
 1. EEG: You put on an EEG cap. An electrode gel (similar to ultrasound) is applied with a blunt needle and the top layer of the scalp is gently roughened to create ideal conductivity.
 :::
-`r if (toml$Consentform$use_eeg!=TRUE) "::::"`
+`{python} ifno(toml['Consentform']['use_eeg'], "::::")`
 
 
 
-`r if (toml$Consentform$use_eyetracking!=TRUE) ":::: {.content-hidden}"`
+`{python} ifno(toml['Consentform']['use_eyetracking'], ":::: {.content-hidden}")`
 ::: {.content-visible when-profile="de"}
 1. Eye-Tracking: Der Eye-Tracker muss kalibriert werden, dazu wird ein sich bewegender Punkt auf dem Bildschirm angezeigt, dem Sie mit ihrem Blick folgen.
 :::
 ::: {.content-visible when-profile="en"}
 1. Eye-tracking: The eye tracker needs to be calibrated, for this, a moving dot will appear on the monitor which you will follow with your gaze.
 :::
-`r if (toml$Consentform$use_eyetracking!=TRUE) "::::"`
+`{python} ifno(toml['Consentform']['use_eyetracking'],"::::")`
 
 
 
 ::: {.content-visible when-profile="de"}
-1. `r toml$Consentform$study_task_de`
+1. `{python} toml['Consentform']['study_task_de']`
 :::
 ::: {.content-visible when-profile="en"}
-1. `r toml$Consentform$study_task_en`
+1. `{python} toml['Consentform']['study_task_en']`
 :::
 
 
 
-`r if (toml$Consentform$use_eeg!=TRUE) ":::: {.content-hidden}"`
+`{python} ifno(toml['Consentform']['use_eeg'], ":::: {.content-hidden}")`
 ::: {.content-visible when-profile="de"}
 1. Die EEG-Kappe wird abgenommen und Sie können sich das Gel aus den Haaren waschen.
 :::
 ::: {.content-visible when-profile="en"}
 1. The EEG cap will be removed and you can wash the gel out of your hair.
 :::
-`r if (toml$Consentform$use_eeg!=TRUE) "::::"`
+`{python} ifno(toml['Consentform']['use_eeg'], "::::")`
 
 
 
 ::: {.content-visible when-profile="de"}
-Inklusive der Fragebögen und Vorbereitungen, dauert der Versuch ca. `r toml$Consentform$study_duration_hrs` Stunden.
+Inklusive der Fragebögen und Vorbereitungen, dauert der Versuch ca. `{python} toml['Consentform']['study_duration_hrs']` Stunden.
 :::
 ::: {.content-visible when-profile="en"}
-Including the questionnaires and preparations, the experiment takes about `r toml$Consentform$study_duration_hrs` hours.
+Including the questionnaires and preparations, the experiment takes about `{python} toml['Consentform']['study_duration_hrs']` hours.
 :::
 
 
 ::: {.content-visible when-profile="de"}
 ## 3) **Risiken und Nebenwirkungen**
 
-Diese Studie ist nach derzeitigem Wissensstand ungefährlich und für die Teilnehmenden schmerzfrei. Durch Ihre Teilnahme an dieser Studie setzen Sie sich keinen besonderen Risiken aus und es sind keine Nebenwirkungen bekannt. Da diese Studie in Ihrer Gesamtheit neu ist, kann das Auftreten von noch unbekannten Nebenwirkungen allerdings nicht ausgeschlossen werden. `r if (toml$Consentform$use_vr) "Bei Experimenten mit virtueller Realität (VR) kann es zu Virtuelle-Realitäts-Krankheit (Motion Sickness) oder zu einer Überanstrengung der Augen kommen."`
+Diese Studie ist nach derzeitigem Wissensstand ungefährlich und für die Teilnehmenden schmerzfrei. Durch Ihre Teilnahme an dieser Studie setzen Sie sich keinen besonderen Risiken aus und es sind keine Nebenwirkungen bekannt. Da diese Studie in Ihrer Gesamtheit neu ist, kann das Auftreten von noch unbekannten Nebenwirkungen allerdings nicht ausgeschlossen werden. `{python} ifyes(toml['Consentform']['use_vr'],"Bei Experimenten mit virtueller Realität (VR) kann es zu Virtuelle-Realitäts-Krankheit (Motion Sickness) oder zu einer Überanstrengung der Augen kommen.")`
 
 **Wichtig:** Teilen Sie dem Versuchsleiter bitte umgehend mit, falls Sie an Farbenblindheit oder an einer neurologischen Krankheit erkrankt sind, starke (Licht-)Stimulation Migräne auslösen kann, oder Sie einen epileptischen Anfall hatten. Bei Fragen hierzu wenden Sie sich bitte an die Versuchsleitung.
 :::
 ::: {.content-visible when-profile="en"}
 ## 3) **Risks and side effects**
 
-According to current knowledge, this study is harmless and painless for the participants. By participating in this study, you are not exposing yourself to any particular risks and there are no known side effects. `r if (toml$Consentform$use_vr) "In the case of virtual reality experiments, exposure may cause motion sickness or eye strain."` However, because this study is new in its entirety, the occurrence of as-yet-unknown side effects cannot be completely ruled out. 
+According to current knowledge, this study is harmless and painless for the participants. By participating in this study, you are not exposing yourself to any particular risks and there are no known side effects. `{python} ifyes(toml['Consentform']['use_vr'], "In the case of virtual reality experiments, exposure may cause motion sickness or eye strain.")` However, because this study is new in its entirety, the occurrence of as-yet-unknown side effects cannot be completely ruled out. 
 
 **Important:** Please inform the experimenter immediately if you have colour-blindness or a neurological disease, if strong (light) stimulation can trigger migraine, or if you have had an epileptic seizure. If you have any questions about this, please contact the experimental investigator.
 :::
@@ -179,12 +191,12 @@ Your data will only be stored in pseudonymized form (e.g. "sub-003"). The mappin
 ::: {.content-visible when-profile="de"}
 ## 6) **Vergütung** 
 
-Die Studie wird mit `r toml$Consentform$pay_per_hour` € pro Stunde vergütet, abgerechnet nach angefangenen halben Stunden
+Die Studie wird mit `{python} toml['Consentform']['pay_per_hour']` € pro Stunde vergütet, abgerechnet nach angefangenen halben Stunden
 :::
 ::: {.content-visible when-profile="en"}
 ## 6) **Remuneration**
 
-The study will be remunerated with `r toml$Consentform$pay_per_hour` € per hour, with payment rounded up to the nearest half hour. 
+The study will be remunerated with `{python} toml['Consentform']['pay_per_hour'] € per hour, with payment rounded up to the nearest half hour. 
 :::
 
 
