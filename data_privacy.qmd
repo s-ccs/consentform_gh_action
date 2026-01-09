@@ -12,20 +12,19 @@ execute:
 import tomli
 import os
 
-# Debug: print current working directory and files
-print(f"Current working directory: {os.getcwd()}")
-print(f"Files in current directory: {os.listdir('.')}")
-
 with open("_project.toml", "rb") as f:
     toml = tomli.load(f)
+from IPython.display import Markdown
+def fmt(s):
+    return Markdown(s)
 ```
 
 :::: {.block fill="none" inset="0pt" radius="4pt" width="60%"}
 ::: {.content-visible when-profile="de"}
-`{python} toml['Consentform']['researcher_details_de']`
+`{python} fmt(toml['Consentform']['researcher_details_de'])`
 :::
 ::: {.content-visible when-profile="en"}
-`{python} toml['Consentform']['researcher_details_en']`
+`{python} fmt(toml['Consentform']['researcher_details_en'])`
 :::
 ::::
 

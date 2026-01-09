@@ -13,7 +13,10 @@ execute:
 import tomli
 with open("_project.toml", "rb") as f:
     toml = tomli.load(f)
+from IPython.display import Markdown
 
+def fmt(s):
+   return Markdown(s)
 
 def ifno(c,s):
     ifyes(not c,s)
@@ -23,15 +26,15 @@ def ifyes(c,s):
     if c:
         s
     else:
-        ""
+        None
 ```
 
 :::: {.block fill="none" inset="0pt" radius="4pt" width="60%"}
 ::: {.content-visible when-profile="de"}
-`{python} toml['Consentform']['researcher_details_de']`
+`{python} fmt(toml['Consentform']['researcher_details_de'])`
 :::
 ::: {.content-visible when-profile="en"}
-`{python} toml['Consentform']['researcher_details_en']`
+`{python} fmt(toml['Consentform']['researcher_details_en'])`
 :::
 ::::
 
@@ -94,25 +97,33 @@ The study will proceed as follows:
 1. We perform an eye test (visual acuity and dominant eye). 
 :::
 
-`{python} ifno(toml['Consentform']['use_eeg'], ":::: {.content-hidden}")`
+```{python} 
+ifno(toml['Consentform']['use_eeg'], fmt(":::: {.content-hidden}"))
+```
 ::: {.content-visible when-profile="de"}
 1. EEG: Sie ziehen eine EEG-Kappe an. Mit einer stumpfen Nadel wird ein Elektrodengel (ähnlich wie bei Ultraschall) aufgetragen und die oberste Schicht der Kopfhaut sanft aufgeraut, um eine ideale Leitfähigkeit herzustellen.
 :::
 ::: {.content-visible when-profile="en"}
 1. EEG: You put on an EEG cap. An electrode gel (similar to ultrasound) is applied with a blunt needle and the top layer of the scalp is gently roughened to create ideal conductivity.
 :::
-`{python} ifno(toml['Consentform']['use_eeg'], "::::")`
+```{python}
+ifno(toml['Consentform']['use_eeg'], fmt("::::"))
+```
 
 
 
-`{python} ifno(toml['Consentform']['use_eyetracking'], ":::: {.content-hidden}")`
+```{python}
+ifno(toml['Consentform']['use_eyetracking'], fmt(":::: {.content-hidden}"))
+```
 ::: {.content-visible when-profile="de"}
 1. Eye-Tracking: Der Eye-Tracker muss kalibriert werden, dazu wird ein sich bewegender Punkt auf dem Bildschirm angezeigt, dem Sie mit ihrem Blick folgen.
 :::
 ::: {.content-visible when-profile="en"}
 1. Eye-tracking: The eye tracker needs to be calibrated, for this, a moving dot will appear on the monitor which you will follow with your gaze.
 :::
-`{python} ifno(toml['Consentform']['use_eyetracking'],"::::")`
+```{python}
+ifno(toml['Consentform']['use_eyetracking'],fmt("::::"))
+```
 
 
 
@@ -125,14 +136,19 @@ The study will proceed as follows:
 
 
 
-`{python} ifno(toml['Consentform']['use_eeg'], ":::: {.content-hidden}")`
+```{python}
+ifno(toml['Consentform']['use_eeg'], fmt(":::: {.content-hidden}"))
+```
+
 ::: {.content-visible when-profile="de"}
 1. Die EEG-Kappe wird abgenommen und Sie können sich das Gel aus den Haaren waschen.
 :::
 ::: {.content-visible when-profile="en"}
 1. The EEG cap will be removed and you can wash the gel out of your hair.
 :::
-`{python} ifno(toml['Consentform']['use_eeg'], "::::")`
+```{python}
+ifno(toml['Consentform']['use_eeg'], fmt("::::"))
+```
 
 
 
