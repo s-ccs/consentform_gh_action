@@ -26,7 +26,7 @@ def ifyes(c,s):
     if c:
         s
     else:
-        None
+        ""
 ```
 
 :::: {.block fill="none" inset="0pt" radius="4pt" width="60%"}
@@ -212,7 +212,7 @@ Die Studie wird mit `{python} toml['Consentform']['pay_per_hour']` € pro Stun
 ::: {.content-visible when-profile="en"}
 ## 6) **Remuneration**
 
-The study will be remunerated with `{python} toml['Consentform']['pay_per_hour'] € per hour, with payment rounded up to the nearest half hour. 
+The study will be remunerated with `{python} toml['Consentform']['pay_per_hour']` € per hour, with payment rounded up to the nearest half hour. 
 :::
 
 
