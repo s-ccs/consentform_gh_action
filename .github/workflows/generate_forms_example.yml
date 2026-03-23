@@ -26,3 +26,4 @@ jobs:
         with:
          language: ${{ matrix.language }}
          project_toml: ${{ steps.read_toml.outputs.toml_content }}
+         commit_files: true
