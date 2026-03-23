@@ -98,8 +98,8 @@ runs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           mkdir -p forms/
-          mv ${{ github.action_path }}/consent.pdf /forms/consent_${{ inputs.language }}.pdf
-          mv ${{ github.action_path }}/data_privacy.pdf /forms/data_privacy_${{ inputs.language }}.pdf
+          mv ${{ github.action_path }}/consent.pdf forms/consent_${{ inputs.language }}.pdf
+          mv ${{ github.action_path }}/data_privacy.pdf forms/data_privacy_${{ inputs.language }}.pdf
           # Add PDFs to staging
           git add forms/
           #git add forms/consent_${{ inputs.language }}.pdf forms/data_privacy_${{ inputs.language }}.pdf
