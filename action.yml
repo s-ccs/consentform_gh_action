@@ -101,21 +101,7 @@ runs:
           mv ${{ github.action_path }}/consent.pdf forms/consent_${{ inputs.language }}.pdf
           mv ${{ github.action_path }}/data_privacy.pdf forms/data_privacy_${{ inputs.language }}.pdf
           # Add PDFs to staging
-          git add forms/
-          #git add forms/consent_${{ inputs.language }}.pdf forms/data_privacy_${{ inputs.language }}.pdf
-
-          # Debug: Show current status
-          echo "=== Git Status Before Pull ==="
-          git status
-          
-          # Pull latest changes first to avoid conflicts
-          echo "=== Pulling Latest Changes ==="
-          git pull origin HEAD:${{ github.ref }} --rebase
-          
-          # Debug: Show current status after pull
-          echo "=== Git Status After Pull ==="
-          git status
-          
+          git add forms/        
           # Check if there are changes to commit
           if ! git diff --cached --quiet; then
             # Commit and push changes
