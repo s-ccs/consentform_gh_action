@@ -16,8 +16,8 @@ inputs:
      type: string
 
   commit_files:
-    description: 'Whether to commit files to repo (true/false)'
-    default: 'true'
+    description: 'Whether to commit files to repo (true/false) - provide PAT token above!'
+    default: 'false'
     required: false
 runs:
   using: "composite"
@@ -25,6 +25,9 @@ runs:
    
       - name: Check out repository
         uses: actions/checkout@v4
+        with:
+          token: ${{ inputs.token }}
+          
       - name: Save project TOML content to file
         shell: bash
         run: |
