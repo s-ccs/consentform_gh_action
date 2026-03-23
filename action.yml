@@ -103,6 +103,18 @@ runs:
           # Add PDFs to staging
           git add forms/
           #git add forms/consent_${{ inputs.language }}.pdf forms/data_privacy_${{ inputs.language }}.pdf
+
+          # Debug: Show current status
+          echo "=== Git Status Before Pull ==="
+          git status
+          
+          # Pull latest changes first to avoid conflicts
+          echo "=== Pulling Latest Changes ==="
+          git pull origin HEAD:${{ github.ref }} --rebase
+          
+          # Debug: Show current status after pull
+          echo "=== Git Status After Pull ==="
+          git status
           
           # Check if there are changes to commit
           if ! git diff --cached --quiet; then
