@@ -97,12 +97,12 @@ runs:
           # Configure git
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          mkdir ${{ github.action_path }}/forms/ -p
-          mv ${{ github.action_path }}/consent.pdf ${{ github.action_path }}/forms/consent_${{ inputs.language }}.pdf
-          mv ${{ github.action_path }}/data_privacy.pdf ${{ github.action_path }}/forms/data_privacy_${{ inputs.language }}.pdf
+          mkdir -p forms/
+          mv ${{ github.action_path }}/consent.pdf /forms/consent_${{ inputs.language }}.pdf
+          mv ${{ github.action_path }}/data_privacy.pdf /forms/data_privacy_${{ inputs.language }}.pdf
           # Add PDFs to staging
-          git add ${{ github.action_path }}/forms
-          #git add ${{ github.action_path }}/forms/consent_${{ inputs.language }}.pdf ${{ github.action_path }}/forms/data_privacy_${{ inputs.language }}.pdf
+          git add forms/
+          #git add forms/consent_${{ inputs.language }}.pdf forms/data_privacy_${{ inputs.language }}.pdf
           
           # Check if there are changes to commit
           if ! git diff --cached --quiet; then
