@@ -101,7 +101,8 @@ runs:
           mv ${{ github.action_path }}/consent.pdf ${{ github.action_path }}/forms/consent_${{ inputs.language }}.pdf
           mv ${{ github.action_path }}/data_privacy.pdf ${{ github.action_path }}/forms/data_privacy_${{ inputs.language }}.pdf
           # Add PDFs to staging
-          git add ${{ github.action_path }}/forms/consent_${{ inputs.language }}.pdf ${{ github.action_path }}/forms/data_privacy_${{ inputs.language }}.pdf
+          git add ${{ github.action_path }}/forms
+          #git add ${{ github.action_path }}/forms/consent_${{ inputs.language }}.pdf ${{ github.action_path }}/forms/data_privacy_${{ inputs.language }}.pdf
           
           # Check if there are changes to commit
           if ! git diff --cached --quiet; then
