@@ -14,6 +14,11 @@ inputs:
   project_toml:
      required: true
      type: string
+
+  commit_files:
+    description: 'Whether to commit files to repo (true/false)'
+    default: 'true'
+    required: false
 runs:
   using: "composite"
   steps:
@@ -82,4 +87,23 @@ runs:
         with:
           name: data_privacy_${{ inputs.language }}
           path: ${{github.action_path}}/data_privacy.pdf
+      - name: Commit PDFs to repository (if enabled)
+        if: inputs.commit_files == 'true'
+        shell: bash
+        run: |
+          # Configure git
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          mkdir ${{ github.action_path }}/forms/ -p
+          mv ${{ github.action_path }}/consent.pdf ${{ github.action_path }}/forms/consent_${{ inputs.language }}.pdf
+          mv data_privacy.pdf forms/data_privacy${{ inputs.language }}.pdf
+          # Add PDFs to staging
+          git add ${{ github.action_path }}/forms/consent_${{ inputs.language }}.pdf ${{ github.action_path }}/forms/data_privacy_${{ inputs.language }}.pdf
           
+          # Check if there are changes to commit
+          if ! git diff --cached --quiet; then
+            # Commit and push changes
+            git commit -m "Auto-commit: Update generated PDFs for ${{ inputs.language }}"
+            git push origin HEAD:${{ github.ref }}
+          fi
+        
