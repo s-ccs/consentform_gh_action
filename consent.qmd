@@ -163,14 +163,37 @@ Including the questionnaires and preparations, the experiment takes about `{pyth
 ::: {.content-visible when-profile="de"}
 ## 3) **Risiken und Nebenwirkungen**
 
-Diese Studie ist nach derzeitigem Wissensstand ungefährlich und für die Teilnehmenden schmerzfrei. Durch Ihre Teilnahme an dieser Studie setzen Sie sich keinen besonderen Risiken aus und es sind keine Nebenwirkungen bekannt. Da diese Studie in Ihrer Gesamtheit neu ist, kann das Auftreten von noch unbekannten Nebenwirkungen allerdings nicht ausgeschlossen werden. `{python} ifyes(toml['Consentform']['use_vr'],"Bei Experimenten mit virtueller Realität (VR) kann es zu Virtuelle-Realitäts-Krankheit (Motion Sickness) oder zu einer Überanstrengung der Augen kommen.")`
+```{python}
+#| echo: false
+#| output: asis
+
+text = ("Diese Studie ist nach derzeitigem Wissensstand ungefährlich und für die Teilnehmenden schmerzfrei. Durch Ihre Teilnahme an dieser Studie setzen Sie sich keinen besonderen Risiken aus und es sind keine Nebenwirkungen bekannt. Da diese Studie in Ihrer Gesamtheit neu ist, kann das Auftreten von noch unbekannten Nebenwirkungen allerdings nicht ausgeschlossen werden.")
+
+if toml['Consentform']['use_vr']:
+    text += (" Bei Experimenten mit virtueller Realität (VR) kann es zu Virtuelle-Realitäts-Krankheit (Motion Sickness) oder zu einer Überanstrengung der Augen kommen.")
+
+print(text)
+```
+
 
 **Wichtig:** Teilen Sie dem Versuchsleiter bitte umgehend mit, falls Sie an Farbenblindheit oder an einer neurologischen Krankheit erkrankt sind, starke (Licht-)Stimulation Migräne auslösen kann, oder Sie einen epileptischen Anfall hatten. Bei Fragen hierzu wenden Sie sich bitte an die Versuchsleitung.
 :::
 ::: {.content-visible when-profile="en"}
 ## 3) **Risks and side effects**
 
-According to current knowledge, this study is harmless and painless for the participants. By participating in this study, you are not exposing yourself to any particular risks and there are no known side effects. `{python} ifyes(toml['Consentform']['use_vr'], "In the case of virtual reality experiments, exposure may cause motion sickness or eye strain.")` However, because this study is new in its entirety, the occurrence of as-yet-unknown side effects cannot be completely ruled out. 
+```{python}
+#| echo: false
+#| output: asis
+
+text = ("According to current knowledge, this study is harmless and painless for the participants. By participating in this study, you are not exposing yourself to any particular risks and there are no known side effects.")
+
+if toml['Consentform']['use_vr']:
+    text += (" In the case of virtual reality experiments, exposure may cause motion sickness or eye strain.")
+
+text += (" However, because this study is new in its entirety, the occurrence of as-yet-unknown side effects cannot be completely ruled out.")
+
+print(text)
+```
 
 **Important:** Please inform the experimenter immediately if you have colour-blindness or a neurological disease, if strong (light) stimulation can trigger migraine, or if you have had an epileptic seizure. If you have any questions about this, please contact the experimental investigator.
 :::
