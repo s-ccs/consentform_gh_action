@@ -27,7 +27,9 @@ runs:
         uses: actions/checkout@v4
         with:
           token: ${{ inputs.token }}
-          
+          ref: ${{ github.ref_name }}
+          fetch-depth: 0  
+                    
       - name: Save project TOML content to file
         shell: bash
         run: |
@@ -108,8 +110,8 @@ runs:
             git commit -m "Auto-commit: Update generated PDFs for ${{ inputs.language }}"
             # pull first if any other worker changed the repo...
             git status
-            git pull --rebase origin ${{ github.ref }}
+            git pull --rebase origin ${{ github.ref_name }}
             git status
-            git push origin HEAD:${{ github.ref }}
+            git push origin HEAD:${{ github.ref_name }}
           fi
         
